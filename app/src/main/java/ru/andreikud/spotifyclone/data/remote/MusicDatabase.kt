@@ -16,7 +16,7 @@ class MusicDatabase {
             songCollection.get().await().toObjects(Song::class.java)
         } catch (e: Exception) {
             Timber.e("Got an exception: ${e.localizedMessage}")
-            return emptyList<Song>()
+            return emptyList()
         }
     }
 }
