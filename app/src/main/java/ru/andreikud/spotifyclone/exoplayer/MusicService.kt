@@ -13,6 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
+import ru.andreikud.spotifyclone.exoplayer.callbacks.MusicPlayerNotificationListener
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -24,11 +25,15 @@ class MusicService : MediaBrowserServiceCompat() {
     @Inject
     lateinit var exoPlayer: ExoPlayer
 
+    private lateinit var musciNotificationManager: MusicNotificationManager
+
     private val coroutineJob = Job()
     private val coroutineScope = CoroutineScope(Dispatchers.Main + coroutineJob)
 
     private lateinit var mediaSession: MediaSessionCompat
     private lateinit var mediaSessionConnector: MediaSessionConnector
+
+    var isForegroundService = false
 
     override fun onCreate() {
         super.onCreate()
@@ -44,6 +49,14 @@ class MusicService : MediaBrowserServiceCompat() {
 
         mediaSessionConnector = MediaSessionConnector(mediaSession).apply {
             setPlayer(exoPlayer)
+        }
+
+        musciNotificationManager = MusicNotificationManager(
+            this,
+            mediaSession.sessionToken,
+            MusicPlayerNotificationListener(this)
+        ) {
+
         }
     }
 
