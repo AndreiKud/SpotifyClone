@@ -97,4 +97,6 @@ dependencies {
     api "com.google.android.exoplayer:exoplayer-core:2.15.0"
     api "com.google.android.exoplayer:exoplayer-ui:2.15.0"
     api "com.google.android.exoplayer:extension-mediasession:2.15.0"
+
+    implementation "io.grpc:grpc-okhttp:1.40.0"
 }

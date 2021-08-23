@@ -10,6 +10,7 @@ import android.support.v4.media.session.MediaSessionCompat
 import androidx.media.MediaBrowserServiceCompat
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
 import com.google.android.exoplayer2.ext.mediasession.TimelineQueueNavigator
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
@@ -29,7 +30,7 @@ class MusicService : MediaBrowserServiceCompat() {
     lateinit var dataSourceFactory: DefaultDataSourceFactory
 
     @Inject
-    lateinit var exoPlayer: ExoPlayer
+    lateinit var exoPlayer: SimpleExoPlayer
 
     @Inject
     lateinit var firebaseMusicSource: FirebaseMusicSource
@@ -86,6 +87,9 @@ class MusicService : MediaBrowserServiceCompat() {
         musicEventListener = MusicEventListener(this)
         exoPlayer.addListener(musicEventListener)
         musicNotificationManager.showNotification(exoPlayer)
+
+        // Wow...
+        exoPlayer.setThrowsWhenUsingWrongThread(false)
     }
 
     private inner class MusicQueueNavigator : TimelineQueueNavigator(mediaSession) {
@@ -100,7 +104,8 @@ class MusicService : MediaBrowserServiceCompat() {
         playNow: Boolean
     ) {
         val currentSongIndex = if (currentPlayingSong == null) 0 else songs.indexOf(itemToPlay)
-        exoPlayer.prepare(firebaseMusicSource.asMediaSource(dataSourceFactory))
+        exoPlayer.setMediaSource(firebaseMusicSource.asMediaSource(dataSourceFactory))
+        exoPlayer.prepare()
         exoPlayer.seekTo(currentSongIndex, 0L)
         exoPlayer.playWhenReady = playNow
     }

@@ -14,9 +14,10 @@ import ru.andreikud.spotifyclone.exoplayer.isPlayEnabled
 import ru.andreikud.spotifyclone.exoplayer.isPrepared
 import ru.andreikud.spotifyclone.other.Constants.MEDIA_ROOT_ID
 import ru.andreikud.spotifyclone.other.Resource
+import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel constructor(
+class MainViewModel @Inject constructor(
     private val musicServiceConnection: MusicServiceConnection
 ) : ViewModel() {
     private val _mediaItems = MutableLiveData<Resource<List<Song>>>()
@@ -39,11 +40,11 @@ class MainViewModel constructor(
                     super.onChildrenLoaded(parentId, children)
                     val items = children.map {
                         Song(
-                            it.mediaId!!,
                             it.description.title.toString(),
                             it.description.subtitle.toString(),
                             it.description.mediaUri.toString(),
                             it.description.iconUri.toString(),
+                            it.mediaId!!,
                         )
                     }
 

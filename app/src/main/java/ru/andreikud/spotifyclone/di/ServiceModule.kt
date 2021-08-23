@@ -2,6 +2,7 @@ package ru.andreikud.spotifyclone.di
 
 import android.content.Context
 import com.google.android.exoplayer2.C
+import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.audio.AudioAttributes
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
@@ -37,6 +38,7 @@ object ServiceModule {
     ) = SimpleExoPlayer.Builder(context)
         .setAudioAttributes(audioAttributes, true)
         .setHandleAudioBecomingNoisy(true)
+        .build()
 
     @ServiceScoped
     @Provides
