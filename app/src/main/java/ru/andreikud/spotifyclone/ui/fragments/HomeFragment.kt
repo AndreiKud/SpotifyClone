@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import ru.andreikud.spotifyclone.R
-import ru.andreikud.spotifyclone.data.SongAdapter
+import ru.andreikud.spotifyclone.adapters.SongListAdapter
 import ru.andreikud.spotifyclone.other.Status
 import ru.andreikud.spotifyclone.ui.viewmodels.MainViewModel
 import javax.inject.Inject
@@ -23,7 +23,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     lateinit var rvAllSongs: RecyclerView
 
     @Inject
-    lateinit var songAdapter: SongAdapter
+    lateinit var songListAdapter: SongListAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,14 +34,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         setupRecyclerView()
         subscribeToObservers()
 
-        songAdapter.setOnItemClickListener { song ->
+        songListAdapter.setItemClickListener { song ->
             mainViewModel.playOrToggleSong(song)
         }
     }
 
     private fun setupRecyclerView() {
         rvAllSongs.apply {
-            adapter = songAdapter
+            adapter = songListAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
     }
@@ -52,7 +52,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 Status.SUCCESS -> {
                     pbAllSongs.isVisible = false
                     result.data?.let { songs ->
-                        songAdapter.songs = songs
+                        songListAdapter.songs = songs
                     }
                 }
                 Status.LOADING -> pbAllSongs.isVisible = true
