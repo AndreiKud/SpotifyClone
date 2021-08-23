@@ -19,6 +19,7 @@ import ru.andreikud.spotifyclone.exoplayer.callbacks.MusicEventListener
 import ru.andreikud.spotifyclone.exoplayer.callbacks.MusicPlaybackPreparation
 import ru.andreikud.spotifyclone.exoplayer.callbacks.MusicPlayerNotificationListener
 import ru.andreikud.spotifyclone.other.Constants
+import ru.andreikud.spotifyclone.other.Constants.MEDIA_ROOT_ID
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -155,7 +156,6 @@ class MusicService : MediaBrowserServiceCompat() {
     }
 
     companion object {
-        private const val MEDIA_ROOT_ID = "root_id"
         private const val TAG = "MusicService"
 
         var songDuration = 0L

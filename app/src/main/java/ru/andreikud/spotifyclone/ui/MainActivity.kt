@@ -1,9 +1,11 @@
-package ru.andreikud.spotifyclone
+package ru.andreikud.spotifyclone.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.RequestManager
 import dagger.hilt.android.AndroidEntryPoint
+import ru.andreikud.spotifyclone.BuildConfig
+import ru.andreikud.spotifyclone.R
 import timber.log.Timber
 import javax.inject.Inject
 
