@@ -8,4 +8,12 @@
         android:id="@+id/homeFragment"
         android:name="ru.andreikud.spotifyclone.ui.fragments.HomeFragment"
         android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/songFragment"
+        android:name="ru.andreikud.spotifyclone.ui.fragments.SongFragment"
+        android:label="SongFragment" />
+
+    <action
+        android:id="@+id/actToSongFragment"
+        app:destination="@+id/songFragment" />
 </navigation>

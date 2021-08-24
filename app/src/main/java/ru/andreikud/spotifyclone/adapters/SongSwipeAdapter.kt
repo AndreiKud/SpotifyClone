@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
+import com.google.android.material.textview.MaterialTextView
 import ru.andreikud.spotifyclone.R
 import ru.andreikud.spotifyclone.data.entities.Song
 import javax.inject.Inject
@@ -22,9 +23,9 @@ class SongSwipeAdapter : BaseSongAdapter(R.layout.swipe_item) {
             val song = songs[position]
             val text = "${song.title} - ${song.subtitle}"
             val tvPrimary: TextView = findViewById(R.id.tvPrimary)
-            tvPrimary.text = song.title
+            tvPrimary.text = text
 
-            setItemClickListener {
+            tvPrimary.setOnClickListener {
                 onItemClickListener?.let {
                     it(song)
                 }

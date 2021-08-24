@@ -20,17 +20,24 @@ class SongListAdapter @Inject constructor(
     override val differ = AsyncListDiffer(this, diffCallback)
 
     override fun onBindViewHolder(holder: SongViewHolder, position: Int) {
-        val tvPrimary: TextView = holder.itemView.findViewById(R.id.tvPrimary)
-        val tvSecondary: TextView = holder.itemView.findViewById(R.id.tvSecondary)
-        val ivItemImage: ImageView = holder.itemView.findViewById(R.id.ivItemImage)
+        with(holder.itemView) {
+            val tvPrimary: TextView = findViewById(R.id.tvPrimary)
+            val tvSecondary: TextView = findViewById(R.id.tvSecondary)
+            val ivItemImage: ImageView = findViewById(R.id.ivItemImage)
+            val song = songs[position]
 
-        val song = songs[position]
-        tvPrimary.text = song.title
-        tvSecondary.text = song.subtitle
-        glide.load(song.logoUrl).into(ivItemImage)
+            tvPrimary.text = song.title
+            tvSecondary.text = song.subtitle
+            glide.load(song.logoUrl).into(ivItemImage)
 
-        onItemClickListener?.let {
-            it(song)
+            val clickListener = View.OnClickListener {
+                onItemClickListener?.let { listener ->
+                    listener(song)
+                }
+            }
+            tvPrimary.setOnClickListener(clickListener)
+            tvSecondary.setOnClickListener(clickListener)
+            ivItemImage.setOnClickListener(clickListener)
         }
     }
 }

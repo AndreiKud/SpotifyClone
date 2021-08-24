@@ -2,14 +2,13 @@ package ru.andreikud.spotifyclone.ui.viewmodels
 
 import android.support.v4.media.MediaBrowserCompat
 import android.support.v4.media.MediaMetadataCompat.METADATA_KEY_MEDIA_ID
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ru.andreikud.spotifyclone.data.entities.Song
 import ru.andreikud.spotifyclone.exoplayer.MusicServiceConnection
-import ru.andreikud.spotifyclone.exoplayer.isPLaying
+import ru.andreikud.spotifyclone.exoplayer.isPlaying
 import ru.andreikud.spotifyclone.exoplayer.isPlayEnabled
 import ru.andreikud.spotifyclone.exoplayer.isPrepared
 import ru.andreikud.spotifyclone.other.Constants.MEDIA_ROOT_ID
@@ -73,7 +72,7 @@ class MainViewModel @Inject constructor(
         ) {
             playbackState.value?.let { state ->
                 when {
-                    state.isPLaying -> if (toggle) musicServiceConnection.transportControls.pause()
+                    state.isPlaying -> if (toggle) musicServiceConnection.transportControls.pause()
                     state.isPlayEnabled -> musicServiceConnection.transportControls.play()
                     else -> Unit
                 }
