@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">Spotify Clone</string>
     <string name="notification_channel_name">Music Channel</string>
-    <string name="notification_channel_desc">Shows the currently playing song</string>
+    <string name="notification_channel_desc">Shows the currently playing song.</string>
+    <string name="act_main_current_song_image">Current song image</string>
+    <string name="act_main_play_pause_image">Play/pause image</string>
+    <string name="frg_song_default_song_name">SONG NAME</string>
+    <string name="frg_song_desc_song_image">Song image.</string>
+    <string name="frg_home_default_curr_playtime">00:00</string>
+    <string name="frg_home_default_song_duration">00:00</string>
+    <string name="frg_home_desc_play_pause_image">Play pause image.</string>
+    <string name="frg_home_desc_image_skip_to_previous">Image skip to previous.</string>
+    <string name="frg_home_desc_skip_to_next">Skip to next.</string>
+    <string name="list_item_item_image">Item image.</string>
+    <string name="list_item_default_playlist_title">Playlist Title</string>
+    <string name="list_item_default_secondary">100 Songs</string>
+    <string name="swipe_item_default_title">Title</string>
 </resources>

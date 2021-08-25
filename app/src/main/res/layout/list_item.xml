@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -9,6 +8,7 @@
         android:id="@+id/ivItemImage"
         android:layout_width="75dp"
         android:layout_height="75dp"
+        android:contentDescription="@string/list_item_item_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -17,10 +17,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center|left"
-        android:text="Playlist Title"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center|start"
+        android:text="@string/list_item_default_playlist_title"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivItemImage"
@@ -30,10 +30,10 @@
         android:id="@+id/tvSecondary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="100 Songs"
-        android:textSize="14sp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:text="@string/list_item_default_secondary"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivItemImage"
         app:layout_constraintTop_toBottomOf="@+id/tvPrimary" />

@@ -54,8 +54,8 @@ class SongFragment : Fragment(R.layout.fragment_song) {
         mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         subscribeToObservers()
 
-        ivSongImage = view.findViewById<ImageView>(R.id.ivSongImage)
-        tvSongName = view.findViewById<TextView>(R.id.tvSongName)
+        ivSongImage = view.findViewById(R.id.ivSongImage)
+        tvSongName = view.findViewById(R.id.tvSongName)
         ivPlayPauseDetails = view.findViewById(R.id.ivPlayPauseDetail)
         ivSkipToPrevious = view.findViewById(R.id.ivSkipPrevious)
         ivSkipToNext = view.findViewById(R.id.ivSkip)

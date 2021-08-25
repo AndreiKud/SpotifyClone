@@ -1,18 +1,8 @@
 package ru.andreikud.spotifyclone.adapters
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.RequestManager
-import com.google.android.material.textview.MaterialTextView
 import ru.andreikud.spotifyclone.R
-import ru.andreikud.spotifyclone.data.entities.Song
-import javax.inject.Inject
 
 class SongSwipeAdapter : BaseSongAdapter(R.layout.swipe_item) {
 

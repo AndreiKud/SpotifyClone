@@ -18,9 +18,9 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    lateinit var mainViewModel: MainViewModel
-    lateinit var pbAllSongs: ProgressBar
-    lateinit var rvAllSongs: RecyclerView
+    private lateinit var mainViewModel: MainViewModel
+    private lateinit var pbAllSongs: ProgressBar
+    private lateinit var rvAllSongs: RecyclerView
 
     @Inject
     lateinit var songListAdapter: SongListAdapter

@@ -10,8 +10,8 @@
         android:id="@+id/tvSongName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="SONG NAME"
         android:gravity="center"
+        android:text="@string/frg_song_default_song_name"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/ivSongImage"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,42 +24,43 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:background="@color/darkBackground"
+        android:contentDescription="@string/frg_song_desc_song_image"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvCurTime"
+        android:id="@+id/tvCurrPlaytime"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="00:00"
         android:layout_marginStart="16dp"
+        android:gravity="center"
+        android:text="@string/frg_home_default_curr_playtime"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintBottom_toBottomOf="@+id/sbSongPlaytime"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/seekBar" />
+        app:layout_constraintTop_toTopOf="@+id/sbSongPlaytime" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/sbSongPlaytime"
         android:layout_width="0dp"
         android:layout_height="18dp"
         app:layout_constraintEnd_toStartOf="@+id/tvSongDuration"
-        app:layout_constraintStart_toEndOf="@+id/tvCurTime"
+        app:layout_constraintStart_toEndOf="@+id/tvCurrPlaytime"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvSongDuration"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="00:00"
         android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="@string/frg_home_default_song_duration"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintBottom_toBottomOf="@+id/sbSongPlaytime"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/seekBar" />
+        app:layout_constraintTop_toTopOf="@+id/sbSongPlaytime" />
 
     <ImageView
         android:id="@+id/ivPlayPauseDetail"
@@ -67,17 +68,19 @@
         android:layout_height="75dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/circle_drawable"
+        android:contentDescription="@string/frg_home_desc_play_pause_image"
         android:src="@drawable/ic_play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/sbSongPlaytime" />
 
     <ImageView
         android:id="@+id/ivSkipPrevious"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/frg_home_desc_image_skip_to_previous"
         android:src="@drawable/ic_skip_previous"
         app:layout_constraintBottom_toBottomOf="@+id/ivPlayPauseDetail"
         app:layout_constraintEnd_toStartOf="@+id/ivPlayPauseDetail"
@@ -88,6 +91,7 @@
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
+        android:contentDescription="@string/frg_home_desc_skip_to_next"
         android:src="@drawable/ic_skip"
         app:layout_constraintBottom_toBottomOf="@+id/ivPlayPauseDetail"
         app:layout_constraintStart_toEndOf="@+id/ivPlayPauseDetail"
